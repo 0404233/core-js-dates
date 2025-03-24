@@ -183,15 +183,16 @@ function formatDate(date) {
  */
 function getCountWeekendsInMonth(month, year) {
   const lastDay = new Date(year, month, 0);
-  let result = 0;
+  const result = [];
   for (let i = 1; i <= lastDay.getDate(); i += 1) {
     const date = new Date(year, month - 1, i);
-    if (date.getDay() === 0 || date.getDay() === 6) {
-      result += 1;
+    const currentDay = date.getDay();
+    if (currentDay === 0 || currentDay === 6) {
+      result.push(currentDay);
     }
   }
 
-  return result;
+  return result.length;
 }
 
 /**
